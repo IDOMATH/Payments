@@ -22,7 +22,7 @@ var AmericanExpressContraints IssuerConstraints = IssuerConstraints{
 
 var BankCardConstraints IssuerConstraints = IssuerConstraints{
 	IinExacts: []int{5610},
-	IinRanges: []IinRange{IinRange{min: 560221, max: 560225}},
+	IinRanges: []IinRange{IinRange{Min: 560221, Max: 560225}},
 	Lengths:   []int{16},
 }
 
