@@ -28,4 +28,5 @@ var BankCardConstraints IssuerConstraints = IssuerConstraints{
 
 var ChinaTUnion IssuerConstraints = IssuerConstraints{
 	IinExacts: []int{31},
+	Lengths:   []int{19},
 }
