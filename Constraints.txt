@@ -1,0 +1,41 @@
+
+Issuing network	                    IIN ranges	            Active	Length	Validation
+American Express	                34, 37	                Yes	    15	Luhn algorithm
+Bankcard        	                5610, 560221–560225	    No	    16
+China T-Union	                    31	                    Yes	    19
+China UnionPay	                    62	                    Yes	    16–19
+Diners Club enRoute		                                    Yes	    15	    No Validation
+Diners Club International	        36	                    Yes	    14–19	Luhn algorithm
+Diners Club United States & Canada	55	                    Yes	    16
+Discover Card                   	6011, 644-649, 65	    Yes	    16–19
+    (China UnionPay co-branded)     622126–622925   	    Yes	    16–19
+UkrCard	                            60400100–60420099	    Yes	    16–19
+RuPay	                            60, 65, 81, 82, 508	    Yes	    16
+    (RuPay-JCB co-branded)          353, 356 	            Yes	    16
+InterPayment	                    636	                    Yes	    16–19
+InstaPayment	                    637–639	                Yes	    16
+JCB	                                3528–3589	            Yes	    16–19
+Laser	                            6304, 6706, 6771, 6709	No	    16–19
+Maestro UK	                        6759, 676770, 676774	Yes	    12–19
+Maestro	                            5018, 5020, 5038, 5893, 6304, 6759, 6761, 6762, 6763	Yes	12–19
+Dankort	5019	Yes	16
+    4571 (Visa co-branded)[14]	Yes	16
+Mir	2200–2204	Yes	16–19
+BORICA (Bulgarian national payment system)	2205	Yes	16
+NPS Pridnestrovie	6054740–6054744	No[15]	16
+Mastercard	2221–2720[16]	Yes (since 2017)[17]	16
+    51–55[16]	Yes	16
+Solo	6334, 6767	No	16, 18, 19
+Switch	4903, 4905, 4911, 4936, 564182, 633110, 6333, 6759	No	16, 18, 19
+Troy	65 (Discover co-branded[18])	Yes	16
+    9792[19]	Yes	16
+Visa	4	Yes	13, 16, 19
+Visa Electron	4026, 417500, 4508, 4844, 4913, 4917	Yes	16
+UATP	1	Yes	15
+Verve	506099–506198, 650002–650027, 507865-507964	Yes	16, 18, 19
+LankaPay	357111	Yes	16
+UzCard	8600	Yes	16	Unknown
+Humo	9860	Yes	16
+GPN	1946 (BNI cards)	Yes	16, 18, 19	Luhn algorithm
+    50, 56, 58, 60-63	Yes	16, 18, 19
+Napas	9704	Yes	16, 19	Unknown
