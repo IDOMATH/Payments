@@ -91,4 +91,12 @@ func isAmericanExpress(cardNumber int) bool {
 }
 
 // Cards issued by Bankcard have an IIN 5610, 560221–560225 and are 16 digits long
-//func isBankcard(cardNumer)
+func isBankcard(cardNumer int) bool {
+	for _, length := range types.BankCardConstraints.Lengths {
+		if CheckNumberLength(cardNumer, length) {
+			break
+		}
+		return false
+	}
+	return false
+}
