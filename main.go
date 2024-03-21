@@ -16,7 +16,9 @@ const (
 func main() {
 	fmt.Println("hello world")
 	fmt.Println(ValidateCardNumber(Amex))
-	fmt.Println(isAmericanExpress(Amex))
+
+	// Cards issues by American Express have an IIN range of 34, 37 and are 15 digits long.
+	fmt.Println(verifyIssuer(Amex, types.AmericanExpressContraints))
 }
 
 func ValidateCardNumber(cardNumber int) bool {
@@ -73,30 +75,38 @@ func CheckIinRange(cardNumber int, iinRange types.IinRange) bool {
 	return firstNDigits >= iinRange.Min && firstNDigits <= iinRange.Max
 }
 
-// Cards issues by American Express have an IIN range of 34, 37 and are 15 digits long.
-func isAmericanExpress(cardNumber int) bool {
-	for _, length := range types.AmericanExpressContraints.Lengths {
+func verifyIssuer(cardNumber int, constraints types.IssuerConstraints) bool {
+	isValidLength, isValidIinExact, isValidIinRange := false, false, false
+	for _, length := range constraints.Lengths {
 		if CheckNumberLength(cardNumber, length) {
+			isValidLength = true
 			break
 		}
-		return false
 	}
-	for _, exact := range types.AmericanExpressContraints.IinExacts {
+
+	for _, exact := range constraints.IinExacts {
 		if CheckIinExact(cardNumber, exact) {
-			return true
-		}
-	}
-
-	return false
-}
-
-// Cards issued by Bankcard have an IIN 5610, 560221–560225 and are 16 digits long
-func isBankcard(cardNumer int) bool {
-	for _, length := range types.BankCardConstraints.Lengths {
-		if CheckNumberLength(cardNumer, length) {
+			isValidIinExact = true
 			break
 		}
-		return false
 	}
-	return false
+
+	for _, iinRange := range constraints.IinRanges {
+		if CheckIinRange(cardNumber, iinRange) {
+			isValidIinRange = true
+			break
+		}
+	}
+
+	if len(constraints.Lengths) == 0 {
+		isValidLength = true
+	}
+	if len(constraints.IinExacts) == 0 {
+		isValidIinExact = true
+	}
+	if len(constraints.IinRanges) == 0 {
+		isValidIinRange = true
+	}
+
+	return isValidLength && isValidIinExact && isValidIinRange
 }
