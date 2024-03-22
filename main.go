@@ -10,7 +10,10 @@ import (
 // These are all test cards generated from Paypal's developer website.
 // DO NOT TRY TO USE THESE.
 const (
-	Amex = 371720518195098
+	Amex       = 371720518195098
+	Visa       = 4032036811195625
+	MasterCard = 5110925019961261
+	Discover   = 6011397097510907
 )
 
 func main() {
