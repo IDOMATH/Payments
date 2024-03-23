@@ -23,8 +23,8 @@ Dankort	5019	Yes	16
 Mir	2200–2204	Yes	16–19
 BORICA (Bulgarian national payment system)	2205	Yes	16
 NPS Pridnestrovie	6054740–6054744	No[15]	16
-Mastercard	2221–2720[16]	Yes (since 2017)[17]	16
-    51–55[16]	Yes	16
+Mastercard	                        2221–2720	            Yes 	16
+                                    51–55               	Yes 	16
 Solo	6334, 6767	No	16, 18, 19
 Switch	4903, 4905, 4911, 4936, 564182, 633110, 6333, 6759	No	16, 18, 19
 Troy	65 (Discover co-branded[18])	Yes	16

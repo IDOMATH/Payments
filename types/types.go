@@ -30,3 +30,8 @@ var ChinaTUnion IssuerConstraints = IssuerConstraints{
 	IinExacts: []int{31},
 	Lengths:   []int{19},
 }
+
+var MasterCard IssuerConstraints = IssuerConstraints{
+	IinRanges: []IinRange{IinRange{Min: 2221, Max: 2720}, IinRange{Min: 51, Max: 55}},
+	Lengths:   []int{16},
+}
