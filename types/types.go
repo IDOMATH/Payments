@@ -35,3 +35,9 @@ var MasterCard IssuerConstraints = IssuerConstraints{
 	IinRanges: []IinRange{IinRange{Min: 2221, Max: 2720}, IinRange{Min: 51, Max: 55}},
 	Lengths:   []int{16},
 }
+
+var Discover IssuerConstraints = IssuerConstraints{
+	IinExacts: []int{6011, 65},
+	IinRanges: []IinRange{IinRange{Min: 644, Max: 649}, IinRange{Min: 622126, Max: 622925}},
+	Lengths:   []int{16, 17, 18, 19},
+}

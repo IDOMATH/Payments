@@ -23,6 +23,7 @@ func main() {
 	// Cards issues by American Express have an IIN range of 34, 37 and are 15 digits long.
 	fmt.Println(verifyIssuer(Amex, types.AmericanExpressContraints))
 	fmt.Println(verifyIssuer(MasterCard, types.MasterCard))
+	fmt.Println(verifyIssuer(Discover, types.Discover))
 }
 
 func ValidateCardNumber(cardNumber int) bool {
