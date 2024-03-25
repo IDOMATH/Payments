@@ -113,5 +113,5 @@ func verifyIssuer(cardNumber int, constraints types.IssuerConstraints) bool {
 		isValidIinRange = true
 	}
 
-	return isValidLength && isValidIinExact && isValidIinRange
+	return isValidLength && (isValidIinExact || isValidIinRange)
 }
