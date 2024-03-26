@@ -41,3 +41,8 @@ var Discover IssuerConstraints = IssuerConstraints{
 	IinRanges: []IinRange{IinRange{Min: 644, Max: 649}, IinRange{Min: 622126, Max: 622925}},
 	Lengths:   []int{16, 17, 18, 19},
 }
+
+var Visa IssuerConstraints = IssuerConstraints{
+	IinExacts: []int{4},
+	Lengths:   []int{13, 16, 19},
+}

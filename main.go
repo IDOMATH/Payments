@@ -24,6 +24,7 @@ func main() {
 	fmt.Println(verifyIssuer(Amex, types.AmericanExpressContraints))
 	fmt.Println(verifyIssuer(MasterCard, types.MasterCard))
 	fmt.Println(verifyIssuer(Discover, types.Discover))
+	fmt.Println(verifyIssuer(Visa, types.Visa))
 }
 
 func ValidateCardNumber(cardNumber int) bool {
