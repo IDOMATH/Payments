@@ -1,13 +1,14 @@
 package validate
 
 import (
+	"github.com/idomath/payments/types"
 	"strconv"
 	"testing"
 )
 
 const (
-	amex    = 371720518195098
-	amexIin = 37
+	amex       = 371720518195098
+	masterCard = 5110925019961261
 )
 
 func TestLuhnCheckDigit(t *testing.T) {
@@ -28,7 +29,15 @@ func TestCardLength(t *testing.T) {
 
 func TestIinExact(t *testing.T) {
 	expected := true
-	got := IinExact(amex, amexIin)
+	got := IinExact(amex, types.AmericanExpressContraints.IinExacts[1])
+	if got != expected {
+		t.Errorf("Expected %v, got: %v", expected, got)
+	}
+}
+
+func TestIinRange(t *testing.T) {
+	expected := true
+	got := IinRange(masterCard, types.MasterCardConstraints.IinRanges[1])
 	if got != expected {
 		t.Errorf("Expected %v, got: %v", expected, got)
 	}

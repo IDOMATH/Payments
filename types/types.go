@@ -26,23 +26,23 @@ var BankCardConstraints IssuerConstraints = IssuerConstraints{
 	Lengths:   []int{16},
 }
 
-var ChinaTUnion IssuerConstraints = IssuerConstraints{
+var ChinaTUnionConstraints IssuerConstraints = IssuerConstraints{
 	IinExacts: []int{31},
 	Lengths:   []int{19},
 }
 
-var MasterCard IssuerConstraints = IssuerConstraints{
+var MasterCardConstraints IssuerConstraints = IssuerConstraints{
 	IinRanges: []IinRange{IinRange{Min: 2221, Max: 2720}, IinRange{Min: 51, Max: 55}},
 	Lengths:   []int{16},
 }
 
-var Discover IssuerConstraints = IssuerConstraints{
+var DiscoverConstraints IssuerConstraints = IssuerConstraints{
 	IinExacts: []int{6011, 65},
 	IinRanges: []IinRange{IinRange{Min: 644, Max: 649}, IinRange{Min: 622126, Max: 622925}},
 	Lengths:   []int{16, 17, 18, 19},
 }
 
-var Visa IssuerConstraints = IssuerConstraints{
+var VisaConstraints IssuerConstraints = IssuerConstraints{
 	IinExacts: []int{4},
 	Lengths:   []int{13, 16, 19},
 }
