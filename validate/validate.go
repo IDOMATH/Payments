@@ -1,6 +1,7 @@
 package validate
 
 import (
+	"errors"
 	"github.com/idomath/payments/types"
 	"math"
 	"strconv"
@@ -94,4 +95,24 @@ func computeLuhnCheckDigit(cardNumber int) int {
 	}
 
 	return 10 - sum%10
+}
+
+func GetCardIssuer(cardNumber int) (string, error) {
+	var cardIssuers = make([]types.CardIssuer, 4)
+	cardIssuers[0] = types.AmericanExpress
+	cardIssuers[1] = types.MasterCard
+	cardIssuers[2] = types.Discover
+	cardIssuers[3] = types.Visa
+
+	if !LuhnCheckDigit(cardNumber) {
+		return "", errors.New("Luhn Check digit failed")
+	}
+
+	for _, issuer := range cardIssuers {
+		if Issuer(cardNumber, issuer.Constraints) {
+			return issuer.Issuer, nil
+		}
+	}
+
+	return "", errors.New("Card Issuer not found")
 }

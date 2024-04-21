@@ -17,6 +17,13 @@ const (
 
 func main() {
 	fmt.Println("hello world")
+
+	fmt.Println(validate.GetCardIssuer(Amex))
+	// TODO: Figure out why these 3 always validate as the second Issuer in GetCardIssuer
+	fmt.Println(validate.GetCardIssuer(Visa))
+	fmt.Println(validate.GetCardIssuer(MasterCard))
+	fmt.Println(validate.GetCardIssuer(Discover))
+
 	fmt.Println(validate.LuhnCheckDigit(Amex))
 
 	// Cards issues by American Express have an IIN range of 34, 37 and are 15 digits long.

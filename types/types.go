@@ -11,6 +11,11 @@ type IssuerConstraints struct {
 	Lengths   []int
 }
 
+type CardIssuer struct {
+	Issuer      string
+	Constraints IssuerConstraints
+}
+
 // Would love to have these constraints as const, but slices can't be made constants.
 
 // AmericanExpressContraints houses the IIN ranges and possible lengths for
@@ -46,3 +51,8 @@ var VisaConstraints IssuerConstraints = IssuerConstraints{
 	IinExacts: []int{4},
 	Lengths:   []int{13, 16, 19},
 }
+
+var AmericanExpress CardIssuer = CardIssuer{Issuer: "American Express", Constraints: AmericanExpressContraints}
+var MasterCard CardIssuer = CardIssuer{Issuer: "Master Card", Constraints: MasterCardConstraints}
+var Discover CardIssuer = CardIssuer{Issuer: "Discover", Constraints: DiscoverConstraints}
+var Visa CardIssuer = CardIssuer{Issuer: "Visa", Constraints: VisaConstraints}
