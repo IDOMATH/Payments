@@ -29,7 +29,7 @@ func TestCardLength(t *testing.T) {
 
 func TestIinExact(t *testing.T) {
 	expected := true
-	got := IinExact(amex, types.AmericanExpressContraints.IinExacts[1])
+	got := IinExact(amex, types.AmericanExpressConstraints.IinExacts[1])
 	if got != expected {
 		t.Errorf("Expected %v, got: %v", expected, got)
 	}

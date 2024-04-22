@@ -25,7 +25,7 @@ func main() {
 
 	fmt.Println(validate.LuhnCheckDigit(Amex))
 
-	fmt.Println(validate.Issuer(Amex, types.AmericanExpressContraints))
+	fmt.Println(validate.Issuer(Amex, types.AmericanExpressConstraints))
 	fmt.Println(validate.Issuer(MasterCard, types.MasterCardConstraints))
 	fmt.Println(validate.Issuer(Discover, types.DiscoverConstraints))
 	fmt.Println(validate.Issuer(Visa, types.VisaConstraints))
