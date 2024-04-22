@@ -29,39 +29,43 @@ func IinRange(cardNumber int, iinRange types.IinRange) bool {
 }
 
 func Issuer(cardNumber int, constraints types.IssuerConstraints) bool {
-	isValidLength, isValidIinExact, isValidIinRange := false, false, false
-	for _, length := range constraints.Lengths {
-		if CardLength(cardNumber, length) {
-			isValidLength = true
-			break
-		}
-	}
+	isValidLength, isValidIinExact, matchedIinExact, isValidIinRange := false, false, false, false
 
-	for _, exact := range constraints.IinExacts {
-		if IinExact(cardNumber, exact) {
-			isValidIinExact = true
-			break
+	if len(constraints.Lengths) != 0 {
+		for _, length := range constraints.Lengths {
+			if CardLength(cardNumber, length) {
+				isValidLength = true
+				break
+			}
 		}
-	}
-
-	for _, iinRange := range constraints.IinRanges {
-		if IinRange(cardNumber, iinRange) {
-			isValidIinRange = true
-			break
-		}
-	}
-
-	if len(constraints.Lengths) == 0 {
+	} else {
 		isValidLength = true
 	}
-	if len(constraints.IinExacts) == 0 {
+
+	if len(constraints.IinExacts) != 0 {
+		for _, exact := range constraints.IinExacts {
+			if IinExact(cardNumber, exact) {
+				matchedIinExact = true
+				isValidIinExact = true
+				break
+			}
+		}
+	} else {
 		isValidIinExact = true
 	}
-	if len(constraints.IinRanges) == 0 {
+
+	if !matchedIinExact && len(constraints.IinRanges) != 0 {
+		for _, iinRange := range constraints.IinRanges {
+			if IinRange(cardNumber, iinRange) {
+				isValidIinRange = true
+				break
+			}
+		}
+	} else {
 		isValidIinRange = true
 	}
 
-	return isValidLength && (isValidIinExact || isValidIinRange)
+	return isValidLength && isValidIinExact && isValidIinRange
 }
 
 func getFirstNDigits(cardNumber, n int) int {
